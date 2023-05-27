@@ -1,2 +1,4 @@
-<div class="media-card media-selected" style="background-image: url(<%= media["media_url"] %>)">
+<div class="media-card"
+  <%= image_url = (media["media_type"] == "IMAGE") ? media["media_url"] : media["thumbnail_url"] %>
+  style="background-image:url(<%= image_url %>)">
 </div>

@@ -8,7 +8,7 @@ class ListsController < ApplicationController
 
   def new
     user_token = ENV.fetch("INSTAGRAM_USER_TOKEN")
-    fields = "media_url,media_type,caption,permalink,timestamp"
+    fields = "media_url,media_type,caption,permalink,timestamp,thumbnail_url"
     limit = "10"
 
     url = "https://graph.instagram.com/me/media?access_token=#{user_token}&fields=#{fields}&limit=#{limit}"

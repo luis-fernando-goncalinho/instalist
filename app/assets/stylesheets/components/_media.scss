@@ -2,10 +2,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  grid-gap: 10px;
-  // display: flex;
-  // flex-wrap: wrap;
-  // justify-content: space-around;
+  grid-gap: 1px;
+  background-color: black;
 }
 
 .media-card {
@@ -13,15 +11,6 @@
   background-position: center;
   width: 100%;
   padding-bottom: 100%;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  //color: white;
-  //font-size: 24px;
-  //font-weight: bold;
-  //text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  //border-radius: 5px;
-  //box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .media-selected {
@@ -41,7 +30,7 @@
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .media-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
   }
@@ -50,7 +39,7 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .media-list {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
   }
