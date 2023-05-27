@@ -3,16 +3,19 @@
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   grid-gap: 10px;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-around;
 }
 
 .media-card {
   background-size: cover;
   background-position: center;
-  height: 150px;
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  padding-bottom: 100%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   //color: white;
   //font-size: 24px;
   //font-weight: bold;
