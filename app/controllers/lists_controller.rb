@@ -1,11 +1,9 @@
 class ListsController < ApplicationController
 
   def index
-
   end
 
   def create
-
   end
 
   def new
@@ -15,23 +13,20 @@ class ListsController < ApplicationController
 
     url = "https://graph.instagram.com/me/media?access_token=#{user_token}&fields=#{fields}&limit=#{limit}"
     response = HTTParty.get(url)
-    @medias = JSON.parse(response.body)
-    raise
+    data = JSON.parse(response.body)
+
+    @medias = data["data"]
   end
 
   def edit
-
   end
 
   def show
-
   end
 
   def update
-
   end
 
   def destroy
-
   end
 end

@@ -1,0 +1,6 @@
+  
+  <div class="media-list">
+    <% @medias.each do |media| %>
+      <%= render partial: "media_card", locals: {media: media} %>
+    <% end  %>
+  </div>
