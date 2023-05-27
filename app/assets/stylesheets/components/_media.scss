@@ -1,24 +1,18 @@
 .media-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+  place-items: center;
+  flex-grow: 1;
 }
 
 .media-card {
   background-size: cover;
   background-position: center;
-  height: 150px;
-  width: 150px;
-  display: flex;
+  height: 300px;
+  width: 300px;
   justify-content: center;
   align-items: center;
-  //color: white;
-  //font-size: 24px;
-  //font-weight: bold;
-  //text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  //border-radius: 5px;
-  //box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .media-selected {
@@ -29,27 +23,21 @@
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .media-list {
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .media-list {
-    grid-template-columns: 1fr;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .media-list {
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -57,16 +45,12 @@
 @media (min-width: 992px) {
   .media-list {
     grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    align-items: center;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .media-list {
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
