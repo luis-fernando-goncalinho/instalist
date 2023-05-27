@@ -9,7 +9,14 @@ class ListsController < ApplicationController
   end
 
   def new
+    user_token = ENV.fetch("INSTAGRAM_USER_TOKEN")
+    fields = "media_url,media_type,caption,permalink,timestamp"
+    limit = "10"
 
+    url = "https://graph.instagram.com/me/media?access_token=#{user_token}&fields=#{fields}&limit=#{limit}"
+    response = HTTParty.get(url)
+    @medias = JSON.parse(response.body)
+    raise
   end
 
   def edit
@@ -17,7 +24,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def update
