@@ -1,4 +1,5 @@
-<div class="media-card"
+<div class="media-card position-relative media-selected"
   <%= image_url = (media["media_type"] == "IMAGE") ? media["media_url"] : media["thumbnail_url"] %>
   style="background-image:url(<%= image_url %>)">
+  <i class="fa-solid fa-circle-check fa-lg top-left" style="color: #0084ff;"></i>
 </div>
