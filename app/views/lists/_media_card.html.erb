@@ -1,5 +1,10 @@
-<div class="media-card" data-controller="hello" data-action="click->hello#select"
-  <%= image_url = (media["media_type"] == "IMAGE") ? media["media_url"] : media["thumbnail_url"] %>
-  style="background-image:url(<%= image_url %>)">
-  <i class="fa-solid fa-circle-check fa-lg top-left" style="color: #0084ff;"></i>
+<div class="position-relative" data-controller="selector">
+  <div class="media-card" data-selector-target="media" data-action="click->selector#select"
+<%= image_url = (media["media_type"] == "IMAGE") ? media["media_url"] : media["thumbnail_url"] %>
+    style="background-image:url(<%= image_url %>)">
+  </div>
+  <div class="d-none" data-selector-target="icon">
+    <i class="fa-solid fa-circle-check fa-lg top-left-icon" style="color: #0084ff;"></i>
+    <div class="icon-background top-left-icon-bg"></div>
+  </div>
 </div>
