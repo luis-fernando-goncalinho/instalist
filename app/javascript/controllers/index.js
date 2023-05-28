@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
-import SelectorController from "./selector_controller"
-application.register("selector", SelectorController)
+import MediaListController from "./media_list_controller"
+application.register("media-list", MediaListController)
+
+import SelectorController from "./media_selector_controller"
+application.register("media-selector", SelectorController)

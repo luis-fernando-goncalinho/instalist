@@ -1,9 +1,10 @@
-<div class="position-relative" data-controller="selector">
-  <div class="media-card" data-selector-target="media" data-action="click->selector#select"
+<div class="position-relative" data-controller="media-selector">
+  <div class="media-card" data-media-selector-target="media" data-action="click->media-selector#select"
 <%= image_url = (media["media_type"] == "IMAGE") ? media["media_url"] : media["thumbnail_url"] %>
+    data-media="<%= media.to_json %>"
     style="background-image:url(<%= image_url %>)">
   </div>
-  <div class="d-none" data-selector-target="icon">
+  <div class="d-none" data-media-selector-target="icon">
     <i class="fa-solid fa-circle-check fa-lg top-left-icon" style="color: #0084ff;"></i>
     <div class="icon-background top-left-icon-bg"></div>
   </div>

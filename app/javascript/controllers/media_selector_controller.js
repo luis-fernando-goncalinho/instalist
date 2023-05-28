@@ -5,8 +5,7 @@ export default class extends Controller {
   static targets = ["media", "icon"]
 
   connect() {
-    //this.element.textContent = "Hello World!";
-    console.log('connected')
+    console.log('Media Selector controller connected')
   }
 
   select() {
