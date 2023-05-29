@@ -36,6 +36,19 @@
   padding: 5px;
 }
 
+.icon-container {
+  opacity: 0; /* Initially hide the icon */
+  animation: fadeIn 0.5s forwards; /* Apply fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
