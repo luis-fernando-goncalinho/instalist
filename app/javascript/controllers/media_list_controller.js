@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="media-list"
 export default class extends Controller {
 
-  static targets = ["list"];
+  static targets = ["list", "input"];
 
   connect() {
     console.log('Media list controller connected');
@@ -23,24 +23,21 @@ export default class extends Controller {
   }
 
   createList() {
-
     const medias = this.getSelectedMedias();
-    const listName = 'Teste';
+    const listName = this.inputTarget.value;
+
     const url = '/lists';
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    console.dir(medias);
 
     const data = {
       medias: medias,
       list_name: listName
     };
 
-    console.log(JSON.stringify(data));
-
     const options = {
       method: 'POST',
       headers: {
-        'Accept': 'text/plain',
+        'Accept': 'application/json',
         'X-CSRF-Token': csrfToken,
         'Content-Type': 'application/json'
       },
@@ -48,15 +45,22 @@ export default class extends Controller {
     };
 
     fetch(url, options)
-      .then(response => response.text())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText)
+        }
+      })
       .then(data => {
         // Handle the response from the server
         console.log(data);
+        window.location.href = `/lists/${data.list_id}`;
       })
       .catch(error => {
         // Handle any errors that occurred during the request
         console.error(error);
+        alert('List name or selected medias cant be empty!')
       });
-
   }
 }
