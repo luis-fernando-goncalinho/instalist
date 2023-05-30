@@ -53,6 +53,12 @@
   animation: fadeIn 0.5s forwards; /* Apply fade-in animation */
 }
 
+.fixed-bottom {
+  position: fixed;
+  bottom: 20px;
+  z-index: 1000;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
