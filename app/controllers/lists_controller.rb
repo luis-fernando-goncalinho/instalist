@@ -6,6 +6,7 @@ class ListsController < ApplicationController
   end
 
   def create
+    # Recebe via params os campos medias e name, enviados via fetch no JS
     medias = params[:medias]
     name = params[:list_name]
     user = User.find(1)
@@ -13,13 +14,15 @@ class ListsController < ApplicationController
     @list = List.new(name:, user:)
 
     if @list.save && medias.size.positive?
-      # falta criar os itens de cada lista criada
-      respond_to do |format|
+      medias.each do |media| # Cria items de uma dada lista
+        @item = Item.create!(media:, list: @list)
+      end
+      respond_to do |format| # Responde chamada do JS no formato JSON com id da lista criada
         format.html
         format.json { render json: { list_id: @list.id, status: 'List created!' }, status: :created, formats: [:json] }
       end
     else
-      respond_to do |format|
+      respond_to do |format| # Responde chamada do JS no formato JSON estado de erro
         format.html
         format.json { render json: { error: "List not created!" }, status: :unprocessable_entity, formats: [:json] }
       end
