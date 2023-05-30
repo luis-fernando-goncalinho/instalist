@@ -1,4 +1,14 @@
 <div class="container">
   <p> Lista de ID=<%= @list.id  %> foi criada!</p>
   <p>Nome da lista: <%= @list.name %> </p>
+
+  <div class="media-list">
+    <% @list.items.each do | item |  %>
+      <a href="<%= item.media["permalink"] %>">
+        <div class="media-card" <%= image_url = (item.media["media_type"] == "IMAGE") ? item.media["media_url"] : item.media["thumbnail_url"] %>
+       style="background-image:url(<%= image_url %>)">
+        </div>
+      </a>
+    <% end %>
+  </div>
 </div>

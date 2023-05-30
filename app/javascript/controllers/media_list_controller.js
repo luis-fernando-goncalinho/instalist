@@ -44,8 +44,11 @@ export default class extends Controller {
       body: JSON.stringify(data)
     };
 
+    console.log(data);
+    console.log(url);
     fetch(url, options)
       .then(response => {
+        console.log(response);
         if (response.ok) {
           return response.json();
         } else {
