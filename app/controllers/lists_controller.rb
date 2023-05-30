@@ -2,7 +2,6 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show]
 
   def index
-    raise
   end
 
   def create
