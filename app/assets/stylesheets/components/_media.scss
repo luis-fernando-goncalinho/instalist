@@ -30,6 +30,18 @@
   z-index: 1;
 }
 
+.unselected-icon {
+  background-color: black;
+  opacity: 0.4;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: 1px solid white;
+}
+
 .icon-background {
   display: inline-block;
   background-color: white; /* Set the desired background color */
