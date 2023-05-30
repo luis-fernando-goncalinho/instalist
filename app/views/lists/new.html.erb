@@ -19,7 +19,7 @@
 
     <div class="media-list" data-media-list-target="list">
       <% @medias.each do |media| %>
-          <%= render partial: "media_card", locals: {media: media} %>
+          <%= render partial: "shared/media_card", locals: {media: media} %>
       <% end %>
     </div>
   </div>
