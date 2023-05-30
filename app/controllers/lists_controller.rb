@@ -13,7 +13,10 @@ class ListsController < ApplicationController
     @list = List.new(name:, user:)
 
     if @list.save && medias.size.positive?
-      # falta criar os itens de cada lista criada
+      medias.each do |media|
+        @item = Item.create!(media:, list: @list)
+      end
+
       respond_to do |format|
         format.html
         format.json { render json: { list_id: @list.id, status: 'List created!' }, status: :created, formats: [:json] }
