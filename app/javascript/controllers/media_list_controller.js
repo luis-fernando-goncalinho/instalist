@@ -9,6 +9,13 @@ export default class extends Controller {
     console.log('Media list controller connected');
   }
 
+  select(event) {
+    const element = event.currentTarget;
+    element.querySelector('#media').classList.toggle("media-selected");
+    element.querySelector('#selected').classList.toggle("d-none");
+    element.querySelector('#unselected').classList.toggle("d-none");
+  }
+
   getSelectedMedias() {
     //Select all html elements with .media-selected class
     const elements = this.listTarget.querySelectorAll(".media-selected");
