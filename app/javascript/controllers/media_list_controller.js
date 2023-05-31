@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="media-list"
 export default class extends Controller {
 
-  static targets = ["list", "input"];
+  static targets = ["list", "input", "add"];
 
   connect() {
     console.log('Media list controller connected');
@@ -14,6 +14,12 @@ export default class extends Controller {
     element.querySelector('#media').classList.toggle("media-selected");
     element.querySelector('#selected').classList.toggle("d-none");
     element.querySelector('#unselected').classList.toggle("d-none");
+    
+    //Logic to disable add button if no media is selected
+    let select_count = this.getSelectedMedias().length
+    if (select_count > 0) {
+      this.addTarget.classList.remove('disabled');
+    } else this.addTarget.classList.add('disabled');
   }
 
   getSelectedMedias() {
