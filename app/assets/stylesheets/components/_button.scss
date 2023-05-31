@@ -1,14 +1,13 @@
-.index-button {
+.general-button {
   color: white;
   padding: 8px 24px;
   border-radius: 20px;
   background: linear-gradient(45deg, #ff5252, #ff4081);
   transition: background 0.3s ease;
-  text-decoration: none;;
-
+  text-decoration: none;
 }
 
-.index-button:hover {
+.general-button:hover {
   background: linear-gradient(45deg, #ff4081, #58434a);
   transition: background 0.3s ease;;
   color: white;
