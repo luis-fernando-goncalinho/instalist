@@ -14,12 +14,17 @@ export default class extends Controller {
     element.querySelector('#media').classList.toggle("media-selected");
     element.querySelector('#selected').classList.toggle("d-none");
     element.querySelector('#unselected').classList.toggle("d-none");
-    
+
     //Logic to disable add button if no media is selected
     let select_count = this.getSelectedMedias().length
     if (select_count > 0) {
       this.addTarget.classList.remove('disabled');
-    } else this.addTarget.classList.add('disabled');
+      this.addTarget.innerText = `Adicionar (${select_count})`;
+    }
+    else {
+      this.addTarget.classList.add('disabled');
+      this.addTarget.innerText = `Adicionar`;
+    }
   }
 
   getSelectedMedias() {
