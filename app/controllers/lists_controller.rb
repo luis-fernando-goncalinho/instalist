@@ -2,6 +2,11 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show]
 
   def index
+    @lists = List.all
+    @user = User.find(1)
+    @user_list = List.where(user: @user).limit(3)
+    @list_item = Item.where(list_id: @user_list.pluck(:id))
+
   end
 
   def create
