@@ -53,6 +53,12 @@
   animation: fadeIn 0.5s forwards; /* Apply fade-in animation */
 }
 
+.index-ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
