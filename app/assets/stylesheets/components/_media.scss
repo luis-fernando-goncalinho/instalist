@@ -88,6 +88,9 @@
   margin-bottom: 0;
   padding-bottom: 0;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
 @keyframes fadeIn {
   from {
