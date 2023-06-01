@@ -1,0 +1,13 @@
+.login {
+
+  .row {
+    justify-content: center; // centraliza as colunas na tela de celular
+
+    .col-lg-9 {
+      @include media-breakpoint-up(md) {
+        width: 25%; // ocupa 1/4 da tela em desktop
+        float: right; // alinha à direita em desktop
+      }
+    }
+  }
+}
