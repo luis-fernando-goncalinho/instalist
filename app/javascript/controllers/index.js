@@ -6,6 +6,3 @@ import { application } from "./application"
 
 import MediaListController from "./media_list_controller"
 application.register("media-list", MediaListController)
-
-import ScrollController from "./scroll_controller"
-application.register("scroll", ScrollController)
