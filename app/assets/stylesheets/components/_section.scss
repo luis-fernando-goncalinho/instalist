@@ -22,10 +22,10 @@
 }
 
 .no-scrollbar {
-  scrollbar-width: none;
+  scrollbar-width: auto;
   margin-bottom: 0;
   padding-bottom: 0;
 }
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
+// .no-scrollbar::-webkit-scrollbar {
+//   display: none;
+// }
