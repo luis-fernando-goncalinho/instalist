@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   def index
     @lists = List.all
     @user = current_user
-    @user_list = List.where(user: @user)
+    @user_list = List.where(user: @user).limit(3)
     @list_item = Item.where(list_id: @user_list.pluck(:id))
   end
 

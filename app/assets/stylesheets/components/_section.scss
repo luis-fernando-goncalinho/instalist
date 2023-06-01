@@ -16,10 +16,9 @@
   margin-bottom: calc(-.25 * var(--gutter));
 }
 
-.hs:before,
-.hs:after {
+.hs:before{
   content: '';
-  width: 5px;
+  width: 1px;
 }
 
 .no-scrollbar {
