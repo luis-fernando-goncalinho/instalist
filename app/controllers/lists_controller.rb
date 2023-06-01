@@ -3,17 +3,16 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
-    @user = User.find(1)
+    @user = current_user
     @user_list = List.where(user: @user).limit(3)
     @list_item = Item.where(list_id: @user_list.pluck(:id))
-
   end
 
   def create
     # Recebe via params os campos medias e name, enviados via fetch no JS
     medias = params[:medias]
     name = params[:list_name]
-    user = User.find(1)
+    user = current_user
 
     @list = List.new(name:, user:)
 
