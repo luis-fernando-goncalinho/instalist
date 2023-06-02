@@ -50,12 +50,20 @@ class ListsController < ApplicationController
   end
 
   def show
+    @list = List.find(params[:id])
   end
 
   def update
   end
 
   def destroy
+  end
+
+  def my_lists
+    @lists = List.all
+    @user = current_user
+    @user_list = List.where(user: @user)
+    @list_item = Item.where(list_id: @user_list.pluck(:id))
   end
 
   private
