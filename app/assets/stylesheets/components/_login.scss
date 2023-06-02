@@ -1,13 +1,41 @@
-.login {
+.background-login {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(callie-morgan-VM6iQeQB4DU-unsplash.jpg);
+  background-size: cover;
 
-  .row {
-    justify-content: center; // centraliza as colunas na tela de celular
+  .login {
+    position: relative;
+    height: 100%;
+    width: 100%;
 
-    .col-lg-9 {
-      @include media-breakpoint-up(md) {
-        width: 25%; // ocupa 1/4 da tela em desktop
-        float: right; // alinha à direita em desktop
+    .row {
+      width: 100%;
+      position: absolute;
+      justify-content: right; // centraliza as colunas na tela de celular
+      margin: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      }
+
+      .box-text-login{
+        height: 100%;
+        font-weight: 800;
+        font-size: 90px;
+        line-height: 95px;
+        text-align: left;
+        color: white;
+        text-shadow: 2px 2px 8px #1b010140;
+      }
+
+      .box-form-login{
+        padding: 20px;
+        background-color: white;
+        border-radius: 5%;
+
+        h2{
+          font-weight: 900;
+        }
       }
     }
-  }
 }
