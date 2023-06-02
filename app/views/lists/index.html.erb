@@ -4,7 +4,7 @@
   <div class="my-3">
     <h3>Minhas Listas</h3>
       <div class="hs full no-scrollbar my-3">
-        <% @user_list.each do |list| %>
+        <% @user_list.limit(3).each do |list| %>
           <% @list_item.last(1).each do |item| %>
               <% random_item = @list_item.sample %>
               <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= random_item.media["media_type"] == "IMAGE" ? random_item.media["media_url"] : random_item.media["thumbnail_url"] %>)">
@@ -18,4 +18,5 @@
       </div>
       <%= link_to "Criar Lista", new_list_path, class: "general-button" %>
   </div>
+  <%= link_to "minhas listas", my_lists_path, class: "general-button" %>
 </div>

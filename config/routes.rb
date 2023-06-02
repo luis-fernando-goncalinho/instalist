@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:destroy]
+
+  get '/my_lists', to: "lists#my_lists"
 end
