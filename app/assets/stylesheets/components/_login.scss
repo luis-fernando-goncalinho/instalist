@@ -33,8 +33,23 @@
         background-color: white;
         border-radius: 5%;
 
-        h2{
-          font-weight: 900;
+        a{
+          text-decoration: none;
+        }
+
+        .box-form-name{
+          text-align: center;
+
+          img{
+            width: 10%;
+            height: auto;
+          }
+
+          h2{
+            margin: 10px;
+            font-weight: 400;
+            font-size: 24px;
+          }
         }
       }
     }
