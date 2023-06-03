@@ -9,7 +9,7 @@
           <%= image_tag "Instalist_LogoSquare.png" %>
           <h2>Bem-vindo(a) ao Instalist</h2>
         </div>
-        
+
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
             <%= f.input :email,
