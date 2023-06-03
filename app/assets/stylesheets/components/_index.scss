@@ -9,6 +9,25 @@
 @import "login";
 @import "section";
 
-html{
-  font-family: 'Fira Sans Condensed', sans-serif;
+.index-box{
+  color: #808080;
+  h1{
+    font-weight: 100;
+  }
+  h3{
+    font-weight: 900;
+    font-size: 50pt;
+  }
+
+  a{
+    margin-top: 0;
+    text-decoration: none;
+    color: #808080;
+    font-weight: 700;
+    font-size: 40pt;
+  }
+
+  a:hover{
+    color: #9500ff;
+  }
 }
