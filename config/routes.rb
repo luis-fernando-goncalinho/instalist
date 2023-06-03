@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :user
+  devise_for :user, controllers: { registrations: 'users/registrations' }
     root to: "lists#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
