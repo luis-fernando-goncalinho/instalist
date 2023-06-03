@@ -6,8 +6,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
              <%= link_to "Minhas listas", my_lists_path, class: "nav-link" %>
@@ -24,8 +23,6 @@
               <% end %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
               <a class="dropdown-item" data-turbo-method="delete" href="<%= destroy_user_session_path %>" data-turbo-action="replace" data-turbo-frame="_top" data-turbo-url="<%= new_user_session_path %>">Log out</a>
             </div>
           </li>
