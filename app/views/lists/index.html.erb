@@ -21,11 +21,11 @@
           <%= link_to "ou prefere Criar uma Lista?", new_list_path, class: "article" %>
       </div>
       <% else %>
-        <h3>você ainda não criou uma lista</h3>
-          <%= link_to "vamos criar uma lista?", new_list_path, class: "article" %>
+        <h3>você ainda não criou nenhuma lista</h3>
+          <%= link_to "vamos criar sua primeira lista?", new_list_path, class: "article" %>
     <% end %>
   <% else %>
-   <script>
+     <script>
       window.location.href = '<%= new_user_session_path %>';
     </script>
   <% end %>
