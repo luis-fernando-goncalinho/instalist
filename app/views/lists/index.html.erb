@@ -1,22 +1,21 @@
-<div class="container mt-3">
-  <h1>Bem-vindo ao seu Instalist, <%= current_user.name %></h1>
+<div class="container index-box mt-3">
+  <h1>bem-vindo <i>(a)</i>  ao seu Instalist, </h1>
 
-  <div class="my-3">
-    <h3>Minhas Listas</h3>
-      <div class="hs full no-scrollbar my-3">
+  <div class="mt-2">
+    <h3>explore suas útlimas listas</h3>
+      <div class="hs full no-scrollbar">
         <% @user_list.limit(3).each do |list| %>
           <% @list_item.last(1).each do |item| %>
               <% random_item = @list_item.sample %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= random_item.media["media_type"] == "IMAGE" ? random_item.media["media_url"] : random_item.media["thumbnail_url"] %>)">
+              <div class="card-category" style="background-image: url(<%= random_item.media["media_type"] == "IMAGE" ? random_item.media["media_url"] : random_item.media["thumbnail_url"] %>)">
                 <%= link_to list.name, list_path(list.id), style: 'text-decoration: none; color: white;' %>
               </div>
           <% end %>
         <% end %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)">
-                <%= link_to 'Ver mais', lists_path, style: 'text-decoration: none; color: white;' %>
+                <%= link_to 'Ver mais', my_lists_path, style: 'text-decoration: none; color: white;' %>
         </div>
       </div>
-      <%= link_to "Criar Lista", new_list_path, class: "general-button" %>
+      <%= link_to "ou prefere Criar uma Lista?", new_list_path, class: "article" %>
   </div>
-  <%= link_to "minhas listas", my_lists_path, class: "general-button" %>
 </div>
