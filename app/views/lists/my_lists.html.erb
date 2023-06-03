@@ -1,9 +1,24 @@
-<% @user_list.each do |list| %>
-          <% @list_item.last(1).each do |item| %>
-              <% random_item = @list_item.sample %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= random_item.media["media_type"] == "IMAGE" ? random_item.media["media_url"] : random_item.media["thumbnail_url"] %>)">
-                <%= link_to list.name, list_path(list.id), style: 'text-decoration: none; color: white;' %>
-              </div>
-          <% end %>
+<div class="container mt-5">
+  <div class="text-center">
+    <img class="avatar-mylists mt-5" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+    <h3 class="mt-2">Nome do Utilizador</h3>
+    <h4 class="mt-1">@instagram_utilizador</h4>
+  </div>
+  <div class="mt-2">
+    <h1 class="text-center mt-3 mylist-h1">todas as suas listas</h1>
+  </div>
+
+  <div class="media-list">
+    <% @user_list.each do |list| %>
+      <% @list_item.last(1).each do |item| %>
+        <% random_item = @list_item.sample %>
+        <div class="media-card" style="background-image: url(<%= random_item.media["media_type"] == "IMAGE" ? random_item.media["media_url"] : random_item.media["thumbnail_url"] %>)">
+          <%= link_to list.name, list_path(list.id), style: 'text-decoration: none; color: white;' %>
+        </div>
         <% end %>
-<%= link_to "voltar", root_path, class: "general-button" %>
+        <% end %>
+  <div>
+</div>
+<div class="container fixed-bottom">
+  <%= link_to "voltar", root_path, class: "general-button" %>
+</div>
