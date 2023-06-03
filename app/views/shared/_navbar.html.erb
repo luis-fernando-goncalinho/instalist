@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top mb-5">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <div class="container container-fluid">
     <a class="navbar-brand" href="<%= root_path %>">
       <%= image_tag "Instalist_LogoHorizontal.png" %>
@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-             <%= link_to "Minhas listas", root_path, class: "nav-link" %>
+             <%= link_to "Minhas listas", my_lists_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<%= new_list_path %>">Criar lista</a>
