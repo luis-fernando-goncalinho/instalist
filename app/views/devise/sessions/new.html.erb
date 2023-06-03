@@ -2,11 +2,14 @@
   <div class="login container">
     <div class="row d-flex align-items-center">
       <div class="box-text-login col-lg-9 col-md-12">
-      <p>crie listas de <br>sugestões que <br>todos precisam</p>
+      <p>crie listas de <br>sugestões de que <br>todos precisam</p>
       </div>
       <div class="box-form-login col-lg-3 col-md-12">
-        <h2>Log-in</h2>
-
+        <div class="box-form-name">
+          <%= image_tag "Instalist_LogoSquare.png" %>
+          <h2>Bem-vindo(a) ao Instalist</h2>
+        </div>
+        
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
             <%= f.input :email,
