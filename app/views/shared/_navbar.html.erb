@@ -17,7 +17,7 @@
           </li>
           <li class="nav-item dropdown">
               <% if current_user.profile_picture %>
-              <%= image_tag(current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }) %>
+              <%= cl_image_tag(current_user.profile_picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }) %>
               <% else %>
               <%= image_tag('avatar_placeholder.png', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }) %>
               <% end %>
