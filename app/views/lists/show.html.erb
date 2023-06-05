@@ -1,9 +1,15 @@
-<div class="container">
-  <p> Lista de ID=<%= @list.id  %> foi criada!</p>
-  <p>Nome da lista: <%= @list.name %> </p>
 
-  <div class="media-list">
+<div class="container after-navbar">
+  <div class="text-center">
+    <%= cl_image_tag(current_user.profile_picture.key, class: "avatar-mylists") %>
+    <h4 class="mt-1">@instagram_utilizador</h4>
+  </div>
 
+  <div class="mt-1">
+    <h1 class="text-center mylist-h1"><%= @list.name %></h1>
+  </div>
+
+  <div class="media-list mb-3">
     <% @list.items.each do | item |  %>
       <a href="<%= item.media["permalink"] %>">
         <div class="media-card" <%= image_url = (item.media["media_type"] == "IMAGE") ? item.media["media_url"] : item.media["thumbnail_url"] %>
@@ -11,7 +17,6 @@
         </div>
       </a>
     <% end %>
-
   </div>
   <%= link_to "voltar", root_path, class: "general-button" %>
 </div>

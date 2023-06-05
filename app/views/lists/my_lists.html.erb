@@ -1,11 +1,11 @@
 <div class="container mt-5">
   <div class="text-center">
-    <img class="avatar-mylists mt-5" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-    <h3 class="mt-2">Nome do Utilizador</h3>
+    <%= cl_image_tag(current_user.profile_picture.key, class: "avatar-mylists mt-5") %>
+    <h3 class="mt-2"><%= current_user.name %></h3>
     <h4 class="mt-1">@instagram_utilizador</h4>
   </div>
-  <div class="mt-2">
-    <h1 class="text-center mt-3 mylist-h1">todas as suas listas</h1>
+  <div class="mt-1">
+    <h1 class="text-center mylist-h1">todas as suas listas</h1>
   </div>
 
   <div class="media-list">
