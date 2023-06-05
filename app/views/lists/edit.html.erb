@@ -1,8 +1,8 @@
 <div class="container mt-3" data-controller="media-list">
 
   <div id="#list-name-input">
-    <h4>Qual será o nome da sua lista?</h4>
-    <%= simple_form_for @list do |f| %>
+    <h4>Deseja mudar o nome da sua lista?</h4>
+    <%= simple_form_for @list, data: {media_list_target: "form"} do |f| %>
         <%= f.input :name,
                     input_html: {data: {media_list_target: "input"}},
                     label_html: {hidden: true} %>
@@ -17,7 +17,7 @@
     <div class="container fixed-bottom">
       <div class="row justify-content-center">
         <div class="col-6 d-flex justify-content-center">
-          <div class="general-button disabled" data-action="click->media-list#createList" data-media-list-target="add">
+          <div class="general-button disabled" data-action="click->media-list#updateList" data-media-list-target="add">
             Adicionar
           </div>
         </div>
@@ -26,9 +26,8 @@
 
     <div class="media-list" data-media-list-target="list">
       <% @medias.each do |media| %>
-          <%= render partial: "shared/media_card", locals: {media: media, selected: false} %>
+        <%= render partial: "shared/media_card", locals: {media: media, selected: @list.items.pluck(:media).include?(media)} %>
       <% end %>
     </div>
   </div>
-
 </div>

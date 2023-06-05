@@ -8,7 +8,39 @@
 @import "button";
 @import "login";
 @import "section";
+@import "signup";
 
-html{
-  font-family: 'Fira Sans Condensed', sans-serif;
+.index-box{
+  color: #808080;
+  margin-top: 90px;
+  h1{
+    font-weight: 100;
+  }
+  h3{
+    font-weight: 900;
+    font-size: 50pt;
+  }
+
+  a{
+    margin-top: 0;
+    text-decoration: none;
+    color: #808080;
+    font-weight: 700;
+    font-size: 40pt;
+  }
+
+  a:hover{
+    color: #9500ff;
+  }
+
+}
+
+.mylist-h1{
+  font-weight: 900;
+  font-size: 60pt;
+  color: #808080;
+}
+
+.form-actions{
+  margin-top: 20px;
 }
