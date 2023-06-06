@@ -1,12 +1,11 @@
-<div class="container index-box">
+<div class="container">
   <div class="text-center">
-    
     <% if current_user.profile_picture %>
       <%= cl_image_tag(current_user.profile_picture.key, class: "avatar-mylists mt-5") %>
     <% else %>
       <%= image_tag('avatar_placeholder.png', class: "avatar-mylists mt-5") %>
     <% end %>
-                                        
+
     <h3 class="mt-2"><%= current_user.name %></h3>
     <h4 class="mt-1">@instagram_utilizador</h4>
   </div>
@@ -22,9 +21,8 @@
           <%= link_to list.name, list_path(list.id), style: 'text-decoration: none; color: white;' %>
         </div>
         <% end %>
-        <% end %>
-  <div>
-</div>
-<div class="container fixed-bottom">
-  <%= link_to "voltar", root_path, class: "general-button" %>
+    <% end %>
+  </div>
+
+  <%= link_to "voltar", root_path, class: "general-button mt-3" %>
 </div>
