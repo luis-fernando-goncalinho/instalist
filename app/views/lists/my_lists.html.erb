@@ -1,15 +1,17 @@
 <div class="container index-box">
   <div class="text-center">
+    
     <% if current_user.profile_picture %>
-      <%= image_tag(current_user.profile_picture, class: "avatar-mylists mt-5") %>
+      <%= cl_image_tag(current_user.profile_picture.key, class: "avatar-mylists mt-5") %>
     <% else %>
       <%= image_tag('avatar_placeholder.png', class: "avatar-mylists mt-5") %>
     <% end %>
+                                        
     <h3 class="mt-2"><%= current_user.name %></h3>
     <h4 class="mt-1">@instagram_utilizador</h4>
   </div>
-  <div class="mt-2">
-    <h1 class="text-center mt-3 mylist-h1">todas as suas listas</h1>
+  <div class="mt-1">
+    <h1 class="text-center mylist-h1">todas as suas listas</h1>
   </div>
 
   <div class="media-list">
