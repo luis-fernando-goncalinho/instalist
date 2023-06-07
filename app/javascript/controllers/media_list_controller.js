@@ -65,10 +65,6 @@ export default class extends Controller {
         //console.error(error);
         //alert('List name or selected medias cant be empty!')
       });
-
-
-
-    // You can call a function or perform any action you want when the scroll reaches the end
   }
 
   select(event) {
