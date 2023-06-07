@@ -44,6 +44,8 @@ class ListsController < ApplicationController
     data = JSON.parse(response.body)
 
     @medias = data["data"]
+    @next_url = data["paging"]["next"].split("/media").first
+    @after_url = data["paging"]["next"].split("after=").last
   end
 
   def edit

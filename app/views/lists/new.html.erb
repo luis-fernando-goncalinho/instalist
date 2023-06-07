@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="media-list" data-media-list-target="list">
+    <div class="media-list" data-media-list-target="list" data-next-url=<%=@next_url%> data-after-url=<%=@after_url%>>
       <% @medias.each do |media| %>
           <%= render partial: "shared/media_card", locals: {media: media, selected: false} %>
       <% end %>
