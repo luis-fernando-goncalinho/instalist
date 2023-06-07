@@ -19,6 +19,16 @@ export default class extends Controller {
     }
   };
 
+  mediaToJson(media) {
+    let mediaJson = JSON.stringify(media, function(key, value) {
+      if (typeof value === 'string') {
+        return value.replace(/"/g, '\\"').replace(/ /g, '\\u0020');
+      }
+      return value;
+    });
+    return mediaJson
+  };
+
   triggerEvent() {
     // Trigger your desired event or function here
     console.log('Reached the end of the page!');
@@ -38,7 +48,7 @@ export default class extends Controller {
           // depois trocar media_url por ternário do image_url
           let HTML = `<div class="position-relative" data-action="click->media-list#select">
                         <div class="media-card" id="media"
-                          data-media="${JSON.stringify(media)}"
+                          data-media=${this.mediaToJson(media)}
                           style="background-image:url(${media.media_url})">
                         </div>
                         <div class="d-none icon-container" id="selected">
