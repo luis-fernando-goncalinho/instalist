@@ -11,13 +11,13 @@ export default class extends Controller {
   }
 
   handleScroll() {
-    const scrollPosition = window.innerHeight + window.pageYOffset;
+    const scrollPosition = window.innerHeight + window.pageYOffset + 1;
     const pageHeight = document.documentElement.offsetHeight;
 
     if (scrollPosition >= pageHeight) {
       this.triggerEvent();
     }
-  }
+  };
 
   triggerEvent() {
     // Trigger your desired event or function here
@@ -48,9 +48,9 @@ export default class extends Controller {
                         <div class="unselected-icon top-left-unselected-icon" id="unselected">
                         </div>
                       </div>`;
-        this.listTarget.insertAdjacentHTML("beforeend", HTML)
+          this.listTarget.insertAdjacentHTML("beforeend", HTML)
         });
-        // update next and after url
+        // update next url
         this.listTarget.setAttribute('data-next', data.paging.next);
       })
       .catch(error => {
