@@ -23,12 +23,10 @@ export default class extends Controller {
     // Trigger your desired event or function here
     console.log('Reached the end of the page!');
     let next = this.listTarget.dataset.next;
-    let after = this.listTarget.dataset.after;
-    const user_token = 'IGQVJXT2Q2ZAjRucHNHb0ZALdDh6alF4cGZAiY2w2TW9iQXJPOHR2a1dKSVpDNGdIVFhKekpsZAFVJUi0wU08xOWIxS3NmME1QM3dfd0xUYUZADRHd3MWRXX180MmtnX2x6eFRTSmFaejNkQW9kbXMwZAjR1WAZDZD'
-    let limit = 24;
-    let fields = `media_url,media_type,caption,permalink,timestamp,thumbnail_url`;
+    //let limit = 24;
+    //let fields = `media_url,media_type,caption,permalink,timestamp,thumbnail_url`;
 
-    let url = `${next}/media?access_token=${user_token}&fields=${fields}&limit${limit}&after=${after}`;
+    let url = next;
 
     fetch(url)
       .then(response => {
@@ -57,18 +55,14 @@ export default class extends Controller {
         this.listTarget.insertAdjacentHTML("beforeend", HTML)
         });
         // update next and after url
-        this.listTarget.setAttribute('data-next', data.paging.next.split('/media')[0]);
-        this.listTarget.setAttribute('data-after', data.paging.next.split('after=')[1]);
+        this.listTarget.setAttribute('data-next', data.paging.next);
+        //this.listTarget.setAttribute('data-after', data.paging.next.split('after=')[1]);
       })
       .catch(error => {
         // Handle any errors that occurred during the request
         //console.error(error);
         //alert('List name or selected medias cant be empty!')
       });
-
-
-
-    // You can call a function or perform any action you want when the scroll reaches the end
   }
 
   select(event) {
