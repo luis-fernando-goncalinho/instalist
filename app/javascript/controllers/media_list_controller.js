@@ -22,11 +22,8 @@ export default class extends Controller {
   triggerEvent() {
     // Trigger your desired event or function here
     console.log('Reached the end of the page!');
-    let next = this.listTarget.dataset.next;
-    //let limit = 24;
-    //let fields = `media_url,media_type,caption,permalink,timestamp,thumbnail_url`;
 
-    let url = next;
+    let url = this.listTarget.dataset.next;
 
     fetch(url)
       .then(response => {
@@ -56,7 +53,6 @@ export default class extends Controller {
         });
         // update next and after url
         this.listTarget.setAttribute('data-next', data.paging.next);
-        //this.listTarget.setAttribute('data-after', data.paging.next.split('after=')[1]);
       })
       .catch(error => {
         // Handle any errors that occurred during the request
