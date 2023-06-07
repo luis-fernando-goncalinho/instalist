@@ -8,13 +8,15 @@
 .media-card {
   background-size: cover;
   background-position: center;
-  width: 100%;
+  width: 97%;
   padding-bottom: 100%;
   position: relative;
+  margin-top: 10px;
+
 
   a{
     position: absolute;
-    width: 100%;
+    width: 97%;
     text-align: center;
     top: 50%;
     transform: translateY(-50%);
