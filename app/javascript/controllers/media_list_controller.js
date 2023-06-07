@@ -7,7 +7,75 @@ export default class extends Controller {
 
   connect() {
     console.log('Media list controller connected');
-    console.log(this.formTarget)
+    window.addEventListener('scroll', this.handleScroll.bind(this));
+  }
+
+  handleScroll() {
+    const scrollPosition = window.innerHeight + window.pageYOffset;
+    const pageHeight = document.documentElement.offsetHeight;
+
+    console.log('scroll!')
+
+    if (scrollPosition >= pageHeight) {
+      this.triggerEvent();
+    }
+  }
+
+  triggerEvent() {
+    // Trigger your desired event or function here
+    console.log('Reached the end of the page!');
+    let url = this.listTarget.dataset.nextUrl;
+    let after = this.listTarget.dataset.afterUrl;
+    const user_token = 'IGQVJVSTh1ZA3FnMm9GWXBjYXFLcm5yMk5GNHQ5YjJqUl95aU1qdGdtLTNRRU9tYmtpa2VuTDZAZARVJ1aHQ1ZAEhVVWNUWjVTeFBsZATl3R2wxVWhpUlpITGZASOWhJejRTY3R0WnZABdWxScjdIdFEteEt5dwZDZD'
+    let limit = 24;
+    let fields = `media_url,media_type,caption,permalink,timestamp,thumbnail_url`;
+
+    let final_url = `${url}/media?access_token=${user_token}&fields=${fields}&limit${limit}&after=${after}`;
+
+
+
+    fetch(final_url)
+      .then(response => {
+        console.log(response);
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText)
+        }
+      })
+      .then(data => {
+        // Handle the response from the server
+        //console.log(data);
+
+        data.data.forEach((media) => {
+          // depois trocar media_url por ternário do image_url
+          let HTML = `<div class="position-relative" data-action="click->media-list#select">
+          <div class="media-card" id="media"
+            data-media="${JSON.stringify(media)}"
+            style="background-image:url(${media.media_url})">
+          </div>
+          <div class="d-none icon-container" id="selected">
+            <i class="fa-solid fa-circle-check fa-lg top-left-icon" style="color: #ff5252;"></i>
+            <div class="icon-background top-left-icon-bg"></div>
+          </div>
+          <div class="d-none unselected-icon top-left-unselected-icon" id="unselected">
+          </div>
+        </div>`;
+        this.listTarget.insertAdjacentHTML("beforeend", HTML)
+        });
+        console.dir(this.listTarget)
+        // está sempre pegando a mesma URL, devemos mudar o outerHTML
+        //this.listTarget.dataset.nextUrl = data.paging.next;
+      })
+      .catch(error => {
+        // Handle any errors that occurred during the request
+        //console.error(error);
+        //alert('List name or selected medias cant be empty!')
+      });
+
+
+
+    // You can call a function or perform any action you want when the scroll reaches the end
   }
 
   select(event) {
