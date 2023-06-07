@@ -45,8 +45,6 @@ class ListsController < ApplicationController
 
     @medias = data["data"]
     @next_url = data["paging"]["next"]
-    # @next_url = data["paging"]["next"].split("/media").first
-    # @after_url = data["paging"]["next"].split("after=").last
   end
 
   def edit
