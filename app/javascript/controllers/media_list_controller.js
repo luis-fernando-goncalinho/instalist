@@ -45,11 +45,11 @@ export default class extends Controller {
       .then(data => {
         // Handle the response from the server
         data.data.forEach((media) => {
-          // depois trocar media_url por ternário do image_url
+          let media_url = (media.media_type == "VIDEO") ? media.thumbnail_url : media.media_url;
           let HTML = `<div class="position-relative" data-action="click->media-list#select">
                         <div class="media-card" id="media"
                           data-media=${this.mediaToJson(media)}
-                          style="background-image:url(${media.media_url})">
+                          style="background-image:url(${media_url})">
                         </div>
                         <div class="d-none icon-container" id="selected">
                           <i class="fa-solid fa-circle-check fa-lg top-left-icon" style="color: #ff5252;"></i>
