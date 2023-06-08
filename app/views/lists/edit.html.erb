@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="media-list" data-media-list-target="list">
+    <div class="media-list" data-media-list-target="list" data-next=<%=@next_url%>>
       <% @medias.each do |media| %>
         <%= render partial: "shared/media_card", locals: {media: media, selected: @list.items.pluck(:media).include?(media)} %>
       <% end %>
