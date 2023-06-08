@@ -24,14 +24,6 @@
       </div>
     </div>
 
-    <div class="container fixed-bottom mx-2">
-      <div class="row">
-        <div class="col-6 d-flex">
-          <%= link_to "voltar", root_path, class: "general-button" %>
-        </div>
-      </div>
-    </div>
-
     <div class="media-list" data-media-list-target="list" data-next=<%=@next_url%>>
       <% @medias.each do |media| %>
           <%= render partial: "shared/media_card", locals: {media: media, selected: false} %>
