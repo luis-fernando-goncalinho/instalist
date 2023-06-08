@@ -1,6 +1,6 @@
 <div class="position-relative" data-action="click->media-list#select">
   <div class="media-card <%= selected ? 'media-selected' : '' %>" id="media"
-    <%= image_url = (media["media_type"] == "IMAGE") ? media["media_url"] : media["thumbnail_url"] %>
+    <%= image_url = (media["media_type"] == "VIDEO") ? media["thumbnail_url"] : media["media_url"] %>
     data-media="<%= media.to_json %>"
     style="background-image:url(<%= image_url %>)">
   </div>

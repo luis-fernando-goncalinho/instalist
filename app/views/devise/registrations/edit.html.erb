@@ -31,12 +31,12 @@
           <div class="form-actions mb-2 d-flex">
             <%= f.button :submit, "Atualizar conta", class: "general-button"  %>
           </div>
-          <div>
-          <!-- O botão de cancelar abaixo não está funcionando -->
-          <%= button_to "Cancelar minha conta", registration_path(resource_name), style: "border: none", class: "general-button", data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete %>
-          </div>
 
         <% end %>
+        <div>
+          <!-- O botão de cancelar abaixo não está funcionando -->
+          <%= button_to "Cancelar minha conta", registration_path(resource_name), style: "border: none", class: "general-button", data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete %>
+        </div>
         <%= link_to "Voltar", :back %>
 
       </div>

@@ -1,4 +1,4 @@
-<div class="container index-box" data-controller="media-list">
+<div class="container after-navbar" data-controller="media-list">
 
   <div id="#list-name-input">
     <h4>Qual será o nome da sua lista?</h4>
@@ -20,6 +20,14 @@
           <div class="general-button disabled" data-action="click->media-list#createList" data-media-list-target="add">
             Adicionar
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container fixed-bottom mx-2">
+      <div class="row">
+        <div class="col-6 d-flex">
+          <%= link_to "voltar", root_path, class: "general-button" %>
         </div>
       </div>
     </div>
