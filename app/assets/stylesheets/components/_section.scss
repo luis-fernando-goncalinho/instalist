@@ -28,6 +28,17 @@
   padding-bottom: 0;
 }
 
+#username{
+  text-decoration: none;
+  color: #000000;
+  &:hover{
+    transition-timing-function: ease-in-out;
+    transition: 500ms;
+    color: linear-gradient(45deg, #ffcb4b, #122eff);
+  }
+}
+
+
 // .no-scrollbar::-webkit-scrollbar:vertical {
 //   display: none;
 // }
