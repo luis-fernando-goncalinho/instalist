@@ -35,7 +35,7 @@ class ListsController < ApplicationController
   def new
     @list = List.new
 
-    user_token = ENV.fetch("INSTAGRAM_USER_TOKEN")
+    user_token = ENV.fetch("INSTALIST_USER_TOKEN")
     fields = "media_url,media_type,caption,permalink,timestamp,thumbnail_url,username"
     limit = "24"
 
@@ -48,7 +48,7 @@ class ListsController < ApplicationController
   end
 
   def edit
-    user_token = ENV.fetch("INSTAGRAM_USER_TOKEN")
+    user_token = ENV.fetch("INSTALIST_USER_TOKEN")
     fields = "media_url,media_type,caption,permalink,timestamp,thumbnail_url,username"
     limit = "24"
 
@@ -61,7 +61,7 @@ class ListsController < ApplicationController
   end
 
   def show
-   
+
   end
 
   def update
