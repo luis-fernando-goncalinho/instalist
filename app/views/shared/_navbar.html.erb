@@ -16,7 +16,7 @@
             <a class="nav-link" href="<%= new_list_path %>">Criar lista</a>
           </li>
           <li class="nav-item dropdown">
-              <% if current_user.profile_picture %>
+              <% if current_user.profile_picture.attached? %>
               <%= cl_image_tag(current_user.profile_picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }) %>
               <% else %>
               <%= image_tag('avatar_placeholder.png', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }) %>
