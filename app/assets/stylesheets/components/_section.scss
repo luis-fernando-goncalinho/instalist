@@ -28,13 +28,13 @@
   padding-bottom: 0;
 }
 
-#username{
+#gradient{
   text-decoration: none;
   color: #000000;
   &:hover{
     transition-timing-function: ease-in-out;
     transition: 500ms;
-    background-image: linear-gradient(45deg, #c34416, #384393);
+    background-image: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
     background-clip: text;
     -webkit-background-clip: text; /* Para navegadores baseados em WebKit, como o Safari */
     color: transparent;

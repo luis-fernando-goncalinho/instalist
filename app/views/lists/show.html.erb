@@ -5,7 +5,7 @@
    <% else %>
       <%= image_tag('avatar_placeholder.png', class: "avatar-mylists mt-5") %>
     <% end %>
-    <h4 class="mt-3">Lista criada por <%=link_to "@#{@list.items.first.media['username']}", "https://www.instagram.com/#{@list.items.first.media['username']}", id:"username", target: "_blank" %></h4>
+    <h4 class="mt-3">Lista criada por <%=link_to "@#{@list.items.first.media['username']}", "https://www.instagram.com/#{@list.items.first.media['username']}", id:"gradient", target: "_blank" %></h4>
   </div>
 
   <div class="mt-1">
