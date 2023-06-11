@@ -44,7 +44,6 @@ class ListsController < ApplicationController
   end
 
   def new
-    raise
     @list = List.new
 
     user_token = ENV.fetch("INSTALIST_USER_TOKEN")
