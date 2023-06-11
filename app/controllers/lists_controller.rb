@@ -32,7 +32,19 @@ class ListsController < ApplicationController
     end
   end
 
+  def auth
+    client_id = '638924237694791'
+    redirect_uri = 'http://localhost:3000/lists/new'
+    scope = 'user_profile,user_media'
+    response_type = 'code'
+
+    url = "https://api.instagram.com/oauth/authorize?client_id=#{client_id}&redirect_uri=#{redirect_uri}&scope=#{scope}&response_type=#{response_type}"
+
+    redirect_to url, allow_other_host: true
+  end
+
   def new
+    raise
     @list = List.new
 
     user_token = ENV.fetch("INSTALIST_USER_TOKEN")
