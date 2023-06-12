@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :items, only: [:destroy]
 
   get '/my_lists', to: "lists#my_lists"
+  get '/auth', to: "lists#auth"
 end

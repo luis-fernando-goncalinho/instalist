@@ -9,7 +9,6 @@ class ListsController < ApplicationController
   end
 
   def create
-    # Recebe via params os campos medias e name, enviados via fetch no JS
     medias = params[:medias]
     name = params[:list_name]
     user = current_user
@@ -32,36 +31,65 @@ class ListsController < ApplicationController
     end
   end
 
+  def auth
+    client_id = ENV.fetch("CLIENT_ID")
+    client_secret = ENV.fetch("CLIENT_SECRET")
+    redirect_uri = 'https://localhost:3000/auth'
+    scope = 'user_profile,user_media'
+
+    auth_url = "https://api.instagram.com/oauth/authorize?client_id=#{client_id}&redirect_uri=#{redirect_uri}&scope=#{scope}&response_type=code"
+
+    if params[:code]
+      url = "https://api.instagram.com/oauth/access_token"
+
+      body = "client_id=#{client_id}&client_secret=#{client_secret}&grant_type=authorization_code&redirect_uri=#{redirect_uri}&code=#{params[:code]}"
+
+      response = HTTParty.post(url, { headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }, body: })
+      data = response.parsed_response
+      session[:access_token] = data["access_token"]
+
+      redirect_to session[:next_auth_url]
+    else
+      redirect_to auth_url, allow_other_host: true
+    end
+  end
+
   def new
-    @list = List.new
+    if session[:access_token]
+      @list = List.new
+      fields = "media_url,media_type,caption,permalink,timestamp,thumbnail_url,username"
+      limit = "24"
 
-    user_token = ENV.fetch("INSTALIST_USER_TOKEN")
-    fields = "media_url,media_type,caption,permalink,timestamp,thumbnail_url,username"
-    limit = "24"
+      url = "https://graph.instagram.com/me/media?access_token=#{session[:access_token]}&fields=#{fields}&limit=#{limit}"
+      response = HTTParty.get(url)
+      data = JSON.parse(response.body)
 
-    url = "https://graph.instagram.com/me/media?access_token=#{user_token}&fields=#{fields}&limit=#{limit}"
-    response = HTTParty.get(url)
-    data = JSON.parse(response.body)
-
-    @medias = data["data"]
-    @next_url = data["paging"]["next"]
+      @medias = data["data"]
+      @next_url = data["paging"]["next"]
+    else
+      session[:next_auth_url] = new_list_path
+      redirect_to auth_url, allow_other_host: true
+    end
   end
 
   def edit
-    user_token = ENV.fetch("INSTALIST_USER_TOKEN")
-    fields = "media_url,media_type,caption,permalink,timestamp,thumbnail_url,username"
-    limit = "24"
+    if session[:access_token]
+      fields = "media_url,media_type,caption,permalink,timestamp,thumbnail_url,username"
+      limit = "24"
 
-    url = "https://graph.instagram.com/me/media?access_token=#{user_token}&fields=#{fields}&limit=#{limit}"
-    response = HTTParty.get(url)
-    data = JSON.parse(response.body)
+      url = "https://graph.instagram.com/me/media?access_token=#{session[:access_token]}&fields=#{fields}&limit=#{limit}"
+      response = HTTParty.get(url)
+      data = JSON.parse(response.body)
 
-    @medias = data["data"]
-    @next_url = data["paging"]["next"]
+      @medias = data["data"]
+      @next_url = data["paging"]["next"]
+    else
+      session[:next_auth_url] = edit_list_path(@list)
+      redirect_to auth_url, allow_other_host: true
+    end
   end
 
   def show
-
   end
 
   def update
