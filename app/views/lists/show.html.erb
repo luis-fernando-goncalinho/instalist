@@ -15,7 +15,8 @@
   <div class="media-list mb-3">
     <% @list.items.each do | item |  %>
       <a href="<%= item.media["permalink"] %>">
-        <div class="media-card" <%= image_url = (item.media["media_type"] == "IMAGE") ? item.media["media_url"] : item.media["thumbnail_url"] %>
+        <% img_url = (item.media["media_type"] == "VIDEO") ? item.media["thumbnail_url"] : item.media["media_url"] %>
+        <div class="media-card" <%= image_url = img_url %>
        style="background-image:url(<%= image_url %>)">
         </div>
       </a>
