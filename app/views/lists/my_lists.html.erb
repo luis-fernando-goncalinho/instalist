@@ -16,9 +16,9 @@
   <div class="media-list mb-3">
     <% @user_list.each do |list| %>
       <% @list_item.last(1).each do |item| %>
-        <% random_item = @list_item.sample %>
+        <% random_item = @list_item.where(list_id: list.id).sample %>
         <div class="media-card" style="background-image: url(<%= random_item.media["media_type"] == "IMAGE" ? random_item.media["media_url"] : random_item.media["thumbnail_url"] %>)">
-          <%= link_to list.name, list_path(list.id), style: 'text-decoration: none; color: white;' %>
+          <%= link_to list.name, list_path(list.id), style: 'text-decoration: none; color: white; text-shadow: 2px 2px 4px black;' %>
         </div>
         <% end %>
     <% end %>
