@@ -1,15 +1,128 @@
-<div class="background-login">
-  <div class="login container">
-    <div class="row d-flex align-items-center">
+<div id="container2">
+
+    <input hidden type="radio" name="carousel-control" id="button_1" checked/>
+    <input hidden type="radio" name="carousel-control" id="button_2"/>
+    <input hidden type="radio" name="carousel-control" id="button_3"/>
+    <input hidden type="radio" name="carousel-control" id="button_4"/>
+
+    <div id="navigation">
+        <label for="button_1" class="label_a"> <span></span> </label>
+        <label for="button_2" class="label_b"> <span></span> </label>
+        <label for="button_3" class="label_c"> <span></span> </label>
+        <label for="button_4" class="label_d"> <span></span> </label>
+    </div>
+
+    <div id="carousel">
+        <div class="p-wrapper">
+
+            <section class="panel_a">
+               <div class="background-login m1">
+                <div class="login container ">
+                  <div class="row d-flex align-items-left">
+                    <div class="box-text-login col-lg-9 col-md-12">
+                    <p>crie listas de <br>sugestões de que <br>todos precisam</p>
+                    </div>
+                    <div class="box-text-login col-lg-3 col-md-12">
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+            <section class="panel_b">
+                <div class="background-login background-login2 m2">
+                  <div class="login container">
+                    <div class="row d-flex align-items-left">
+                      <div class="box-text-login box-text-login2 col-lg-9 col-md-12">
+                      <p>bem vindo ao Instalist</p>
+                      <p class="box-text-login2_2">um aplicativo que te ajuda <br> organizar de maneira mais <br>eficiente suas postagens <br>no Instagram</p>
+                      </div>
+                      <div class="box-text-login col-lg-3 col-md-12">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+            <section class="panel_c">
+                <div class="background-login background-login3 m3">
+                  <div class="login container">
+                    <div class="row d-flex align-items-left">
+                      <div class="box-text-login box-text-login3 col-lg-9 col-md-12">
+                      <p>é só criar sua conta <br>pra poder explorar <br>todas as listas criadas <br>ou você mesmo se tornar <br>um(a) criador(a) de listas</p>
+                      </div>
+                      <div class="box-text-login col-lg-3 col-md-12">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+            <section class="panel_d">
+                <div class="background-login background-login4 m4">
+                  <div class="login container">
+                    <div class="row d-flex align-items-left">
+                      <div class="box-text-login box-text-login4 col-lg-9 col-md-12">
+                        <p>compartilhe suas listas <br>de posts do Instragram <br>e infuencie ainda mais <br>seus seguidores</p>
+                        </div>
+                        <div class="box-text-login col-lg-3 col-md-12">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+        </div> <!-- // .p-wrapper -->
+    </div> <!-- // #carousel -->
+
+  <div class="container row d-flex align-items-left position-fixed">
+    <div class="col-lg-9">
+    </div>
+    <div class="box-form-login col-lg-3 col-md-12">
+      <div class="box-form-name">
+        <%= image_tag "Instalist_LogoSquare.png" %>
+        <h2>Bem-vindo(a) ao Instalist</h2>
+      </div>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit,
+                    "Entrar",
+                    class: "general-button" %>
+      </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div> <!-- // #container -->
+
+
+
+
+<!--<div class="background-login m1">
+  <div class="login container ">
+    <div class="row d-flex align-items-left">
       <div class="box-text-login col-lg-9 col-md-12">
       <p>crie listas de <br>sugestões de que <br>todos precisam</p>
       </div>
+      <div class="box-text-login col-lg-3 col-md-12">
+      </div>
+    </div>
+    <div class="container row d-flex align-items-right position-fixed">
       <div class="box-form-login col-lg-3 col-md-12">
         <div class="box-form-name">
           <%= image_tag "Instalist_LogoSquare.png" %>
           <h2>Bem-vindo(a) ao Instalist</h2>
         </div>
-
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
             <%= f.input :email,
@@ -27,10 +140,44 @@
                           "Entrar",
                           class: "general-button" %>
           </div>
-        <% end %>
-
-        <%= render "devise/shared/links" %>
+          <% end %>
+          <%= render "devise/shared/links" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <div class="background-login background-login2 m2">
+    <div class="login container">
+      <div class="row d-flex align-items-left">
+        <div class="box-text-login box-text-login2 col-lg-9 col-md-12">
+        <p>bem vindo ao Instalist</p>
+        <p class="box-text-login2_2">um aplicativo que te ajuda <br> organizar de maneira mais <br>eficiente suas postagens <br>no Instagram</p>
+        </div>
+        <div class="box-text-login col-lg-3 col-md-12">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="background-login background-login3 m3">
+    <div class="login container">
+      <div class="row d-flex align-items-left">
+        <div class="box-text-login box-text-login3 col-lg-9 col-md-12">
+        <p>é só criar sua conta <br>pra poder explorar <br>todas as listas criadas <br>ou você mesmo se tornar <br>um(a) criador(a) de listas</p>
+        </div>
+        <div class="box-text-login col-lg-3 col-md-12">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="background-login background-login4 m4">
+    <div class="login container">
+      <div class="row d-flex align-items-left">
+        <div class="box-text-login box-text-login4 col-lg-9 col-md-12">
+          <p>compartilhe suas listas <br>de posts do Instragram <br>e infuencie ainda mais <br>seus seguidores</p>
+          </div>
+          <div class="box-text-login col-lg-3 col-md-12">
+          </div>
+      </div>
+    </div>
+  </div>
+</div> -->
