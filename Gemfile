@@ -5,6 +5,8 @@ ruby "3.1.2"
 
 gem "cloudinary"
 
+gem 'bootstrap', '~> 4.1.x'
+
 # Gem to make http calls
 gem 'httparty'
 

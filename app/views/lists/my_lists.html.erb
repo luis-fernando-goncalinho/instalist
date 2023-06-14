@@ -7,7 +7,6 @@
     <% end %>
 
     <h3 class="mt-2"><%= current_user.name %></h3>
-   <!--  <h4 class="mt-1">Lista criada por @<%= @list_item.last.media['username'] %></h4> -->
   </div>
   <div class="mt-1">
     <h1 class="text-center mylist-h1">todas as suas listas</h1>
@@ -17,7 +16,8 @@
     <% @user_list.each do |list| %>
       <% @list_item.last(1).each do |item| %>
         <% random_item = @list_item.where(list_id: list.id).sample %>
-        <div class="media-card" style="background-image: url(<%= random_item.media["media_type"] == "IMAGE" ? random_item.media["media_url"] : random_item.media["thumbnail_url"] %>)">
+        <% img_url = (random_item.media["media_type"] == "VIDEO") ? random_item.media["thumbnail_url"] : random_item.media["media_url"] %>
+        <div class="media-card" style="background-image: url(<%= img_url %>)">
           <%= link_to list.name, list_path(list.id), style: 'text-decoration: none; color: white; text-shadow: 2px 2px 4px black;' %>
         </div>
         <% end %>
