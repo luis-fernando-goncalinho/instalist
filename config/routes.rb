@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :lists do
     resources :items, only: [:create]
+    resources :favorites, only: [:create]
   end
 
   resources :items, only: [:destroy]
+  resources :favorites, only: [:destroy]
 
   get '/my_lists', to: "lists#my_lists"
   get '/auth', to: "lists#auth"
