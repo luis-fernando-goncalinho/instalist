@@ -91,6 +91,8 @@ class ListsController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @user.favorites
   end
 
   def update

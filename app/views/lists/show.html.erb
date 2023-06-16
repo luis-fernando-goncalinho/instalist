@@ -25,7 +25,7 @@
   <%= link_to "voltar", root_path, class: "general-button" %>
   <%= link_to "favoritar essa lista", list_favorites_path(@list), class: "general-button", data: {turbo_method: :post} %>
   <% if @list.user == @user %>
-  <%= link_to "editar essa lista", edit_list_path(@list), class: "general-button" %>
-  <%= link_to 'apagar esta lista', list_path(@list), class: "general-button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a lista?"} %>
+    <%= link_to "editar essa lista", edit_list_path(@list), class: "general-button" %>
+    <%= link_to 'apagar esta lista', list_path(@list), class: "general-button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a lista?"} %>
   <% end %>
 </div>
