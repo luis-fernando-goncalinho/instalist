@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Favorite.find(params[:id])
+    @favorite = Favorite.find_by(list_id: params[:id], user: current_user)
     @favorite.destroy
     redirect_to root_path, notice: "Favorite successfully deleted."
   end
@@ -27,6 +27,10 @@ class FavoritesController < ApplicationController
     @fav_lists = []
     @user_fav_lists.each do |fav_list|
       @fav_lists << List.where(id: fav_list.list_id)
+    end
+    if @fav_lists.empty?
+      flash[:alert] = "Você não possui listas favoritas"
+      redirect_to root_path
     end
   end
 

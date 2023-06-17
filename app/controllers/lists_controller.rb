@@ -126,6 +126,10 @@ class ListsController < ApplicationController
     @user = current_user
     @user_list = List.where(user: @user)
     @list_item = Item.where(list_id: @user_list.pluck(:id))
+    if @user_list.empty?
+      flash[:alert] = "Você não possui listas criadas"
+      redirect_to root_path
+    end
   end
 
   def all_lists
