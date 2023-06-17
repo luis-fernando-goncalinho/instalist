@@ -10,10 +10,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-             <%= link_to "Minhas listas", user_has_list? ? my_lists_path : root_path, alert: "Você não possui listas!", class: "nav-link" %>
+             <%= link_to "Minhas listas", my_lists_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
-             <%= link_to "listas favoritas", user_has_fav? ? favorites_path : root_path, alert: "Você não possui listas favoritas!", class: "nav-link" %>
+             <%= link_to "Listas favoritas", favorites_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<%= new_list_path %>">Criar lista</a>

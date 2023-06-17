@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def user_has_fav?
-    current_user.favorites.exists?
+    current_user.favorites.present?
   end
 end
