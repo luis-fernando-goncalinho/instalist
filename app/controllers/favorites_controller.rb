@@ -12,6 +12,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+
   end
 
   private
