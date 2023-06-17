@@ -1,9 +1,24 @@
 <div class="container index-box">
   <% if  user_signed_in? %>
       <h1>bem-vindo <i>(a)</i>  ao seu Instalist, <%= @user.name %></h1>
-    <% if @user_list.count > 0 %>
-
       <div class="mt-2">
+        <h3>explore todas as listas</h3>
+            <div class="hs full no-scrollbar">
+              <%@lists.limit(10).each do |list| %>
+              <% @all_list_items = Item.where(list_id: list) %>
+                <% @all_list_items.last(1).each do |item| %>
+                    <% random_item = @all_list_items.where(list_id: list.id).sample %>
+                    <% img_url = (random_item.media["media_type"] == "VIDEO") ? random_item.media["thumbnail_url"] : random_item.media["media_url"] %>
+                    <div class="card-category" style="background-image: url(<%= img_url %>)">
+                      <%= link_to list.name, list_path(list.id), style: 'text-decoration: none; color: white; text-shadow: 2px 2px 4px black;' %>
+                    </div>
+                <% end %>
+              <% end %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)">
+                      <%= link_to 'Ver mais', all_lists_path, style: 'text-decoration: none; color: white;' %>
+              </div>
+        </div>
+    <% if @user_list.count > 0 %>
         <h3>explore suas últimas listas</h3>
           <div class="hs full no-scrollbar">
             <% @user_list.limit(3).each do |list| %>
