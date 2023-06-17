@@ -1,0 +1,26 @@
+<div class="container after-navbar">
+  <div class="text-center">
+    <!-- <% if current_user.profile_picture %>
+      <%= cl_image_tag(current_user.profile_picture.key, class: "avatar-mylists") %>
+    <% else %>
+      <%= image_tag('avatar_placeholder.png', class: "avatar-mylists mt-5") %>
+    <% end %>
+
+    <h3 class="mt-2"><%= current_user.name %></h3>
+  </div> -->
+  <div class="mt-1">
+    <h1 class="text-center mylist-h1">todas as listas</h1>
+  </div>
+
+  <div class="media-list mb-3">
+    <% @lists.each do |list| %>
+        <% random_item = list.items.sample %>
+        <% img_url = (random_item.media["media_type"] == "VIDEO") ? random_item.media["thumbnail_url"] : random_item.media["media_url"] %>
+        <div class="media-card" style="background-image: url(<%= img_url %>)">
+          <%= link_to list.name, list_path(list.id), style: 'text-decoration: none; color: white; text-shadow: 2px 2px 4px black;' %>
+        </div>
+    <% end %>
+  </div>
+
+  <%= link_to "voltar", root_path, class: "general-button" %>
+</div>

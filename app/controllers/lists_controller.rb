@@ -92,7 +92,6 @@ class ListsController < ApplicationController
 
   def show
     @user = current_user
-    @favorite = Favorite.find(params[:id])
     @user.favorites
 
   end
@@ -127,6 +126,10 @@ class ListsController < ApplicationController
     @user = current_user
     @user_list = List.where(user: @user)
     @list_item = Item.where(list_id: @user_list.pluck(:id))
+  end
+
+  def all_lists
+    @lists = List.all
   end
 
   private
