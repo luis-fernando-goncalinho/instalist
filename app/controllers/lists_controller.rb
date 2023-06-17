@@ -92,7 +92,9 @@ class ListsController < ApplicationController
 
   def show
     @user = current_user
+    @favorite = Favorite.find(params[:id])
     @user.favorites
+
   end
 
   def update

@@ -12,10 +12,16 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-
+    @favorite = Favorite.find(params[:id])
+    @favorite.destroy
+    redirect_to root_path, notice: "Favorite successfully deleted."
   end
 
   private
+
+  def permitted_params
+    params.permit!
+  end
 
   def set_list
     @list = List.find(params[:list_id])
