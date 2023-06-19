@@ -3,12 +3,17 @@
     <h1 class="text-center mylist-h1">todas as listas</h1>
   </div>
 
-  <div class="media-list mb-3">
+  <div class="media-list fav-list mb-3">
     <% @lists.each do |list| %>
         <% random_item = list.items.sample %>
         <% img_url = (random_item.media["media_type"] == "VIDEO") ? random_item.media["thumbnail_url"] : random_item.media["media_url"] %>
         <div class="media-card" style="background-image: url(<%= img_url %>)">
           <%= link_to list.name, list_path(list.id), style: 'text-decoration: none; color: white; text-shadow: 2px 2px 4px black;' %>
+          <% if list.user.profile_picture.attached? %>
+            <%= cl_image_tag(list.user.profile_picture.key, class: "card-img-user avatar-bordered") %>
+          <% else %>
+            <%= image_tag('avatar_placeholder.png', class: "card-img-user avatar-bordered") %>
+          <% end %>
         </div>
     <% end %>
   </div>

@@ -10,11 +10,17 @@
 @import "section";
 @import "signup";
 @import "footer";
+@import "all_lists";
+
+html, body{
+  margin-top: 0;
+  padding: 0;
+}
 
 .index-box{
   color: #808080;
   margin-top: 90px;
-  h1{
+  h3{
     font-weight: 100;
   }
   h3{
@@ -53,4 +59,89 @@
 
 .after-navbar {
   margin-top: 90px;
+
+  .titulo-criar{
+    margin-top: 0;
+    padding-top: 0;
+    font-weight: 100;
+    font-size: 80px;
+    letter-spacing: 0.1;
+  }
+
+  .titulo2-criar{
+    font-size: 65px;
+  }
+  .titulo3-criar{
+    font-size: 55px;
+    font-weight: 100;
+  }
+}
+
+@media (min-width: 812px) and (max-width: 1200px) {
+  .after-navbar {
+    margin-top: 70px;
+
+    .titulo-criar{
+      font-size: 60px;
+      letter-spacing: 0.1;
+    }
+
+    .titulo2-criar{
+      font-size: 45px;
+    }
+    .titulo3-criar{
+      font-size: 35px;
+    }
+  }
+}
+
+
+@media only screen
+  and (min-device-width: 280px)
+  and (max-device-width: 812px) {
+
+    .small-screens-text{
+      display: none;
+    }
+
+    .index-box {
+      h1{
+        font-size: 22px;
+        font-weight: 400;
+      }
+
+      h3, a{
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-size: 30px;
+      }
+
+      a{
+        font-size: 22px;
+      }
+
+    }
+
+    .after-navbar {
+      margin-top: 50px;
+
+      .titulo-criar{
+        font-size: 40px;
+        letter-spacing: 0.1;
+      }
+
+      .titulo2-criar{
+        font-size: 35px;
+      }
+      .titulo3-criar{
+        font-size: 20px;
+      }
+    }
+
+    .mylist-h1{
+      font-weight: 400;
+      font-size: 30pt;
+    }
+
 }

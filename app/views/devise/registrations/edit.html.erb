@@ -1,4 +1,4 @@
-<div class="container signup">
+<div class="container after-navbar signup">
   <div class="row d-flex justify-content-center">
     <div class ="box-form-signup col-8">
      <div class="form-inputs">
@@ -28,14 +28,16 @@
             <%= f.input :profile_picture %>
           </div>
 
-          <div class="form-actions mb-2 d-flex">
+          <div class="form-actions mb-2 d-flex justify-content-space-between">
             <%= f.button :submit, "Atualizar conta", class: "general-button"  %>
+            <!-- O botão de cancelar abaixo não está funcionando -->
+            <%= button_to "Cancelar conta", registration_path(resource_name), style: "border: none", class: "general-button", data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete %>
           </div>
 
         <% end %>
-        <div>
-          <!-- O botão de cancelar abaixo não está funcionando -->
-          <%= button_to "Cancelar minha conta", registration_path(resource_name), style: "border: none", class: "general-button", data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete %>
+        <div class-"buttons-box">
+
+
         </div>
         <%= link_to "Voltar", :back %>
 

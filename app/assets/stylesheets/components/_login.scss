@@ -170,7 +170,7 @@
     text-align: center;
 
     img{
-      width: 10%;
+      width: 80%;
       height: auto;
     }
 
@@ -180,4 +180,36 @@
       font-size: 24px;
     }
   }
+}
+
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px) {
+
+    #container2{
+      background-image: url(patrick-tomasso-KGcLJwIYiac-unsplash.jpg);
+      object-fit: cover;
+      background-position: center;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+
+      #navigation{
+        display: none;
+      }
+
+      #carousel{
+        display: none;
+      }
+
+      .box-form-login{
+        img{
+          width: 85%;
+        }
+
+        .form-actions input{
+          padding: 12px 34px;
+        }
+      }
+    }
 }

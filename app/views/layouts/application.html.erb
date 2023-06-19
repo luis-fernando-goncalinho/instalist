@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Instalist</title>
+    <link rel="icon" href="/app/assets/images/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -22,10 +23,13 @@
     </script>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+  <% unless current_page?(new_user_session_path) %>
+	  <%= render 'shared/navbar' %>
+  <% end %>
     <%= yield %>
     <%= render "shared/flashes" %>
-    <footer>
-    </footer>
+  <% unless current_page?(new_user_session_path) %>
+	  <%= render 'shared/footer' %>
+  <% end %>
   </body>
 </html>
