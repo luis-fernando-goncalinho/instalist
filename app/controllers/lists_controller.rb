@@ -35,7 +35,7 @@ class ListsController < ApplicationController
   def auth
     client_id = ENV.fetch("CLIENT_ID")
     client_secret = ENV.fetch("CLIENT_SECRET")
-    redirect_uri = 'https://localhost:3000/auth'
+    redirect_uri = ENV.fetch("REDIRECT_URI")
     scope = 'user_profile,user_media'
 
     auth_url = "https://api.instagram.com/oauth/authorize?client_id=#{client_id}&redirect_uri=#{redirect_uri}&scope=#{scope}&response_type=code"

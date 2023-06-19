@@ -5,7 +5,7 @@
         <h3>explore todas as listas</h3>
             <div class="hs full no-scrollbar">
               <%@lists.limit(10).each do |list| %>
-              <% @all_list_items = Item.where(list_id: list) %>
+              <% @all_list_items = Item.where(list_id: list.id) %>
                 <% @all_list_items.last(1).each do |item| %>
                     <% random_item = @all_list_items.where(list_id: list.id).sample %>
                     <% img_url = (random_item.media["media_type"] == "VIDEO") ? random_item.media["thumbnail_url"] : random_item.media["media_url"] %>
