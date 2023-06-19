@@ -1,7 +1,7 @@
-<div class="container index-box" data-controller="media-list">
-
+<div class="container after-navbar" data-controller="media-list">
+  <h3 class="titulo-criar">edite uma lista</h3>
   <div id="#list-name-input">
-    <h4>Deseja mudar o nome da sua lista?</h4>
+    <h4>deseja mudar o nome da sua lista?</h4>
     <%= simple_form_for @list, data: {media_list_target: "form"} do |f| %>
         <%= f.input :name,
                     input_html: {data: {media_list_target: "input"}},
@@ -11,7 +11,7 @@
 
   <div id="medias-selector-input">
     <div class="d-flex justify-content-between align-items-center my-3">
-      <h4>Selecione as publicações</h4>
+      <h4>selecione as publicações</h4>
     </div>
 
     <div class="container fixed-bottom">

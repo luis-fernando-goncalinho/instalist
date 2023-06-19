@@ -5,6 +5,10 @@
   grid-gap: 5px;
 }
 
+.media-list-small {
+  display: none;
+}
+
 .media-card {
   background-size: cover;
   background-position: center;
@@ -122,3 +126,19 @@
     align-items: center;
   }
 }
+
+@media only screen
+  and (min-device-width: 811px)
+  and (max-device-width: 1100px) {
+    .fav-list{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px) {
+    .fav-list{
+      grid-template-columns: 1fr;
+    }
+  }

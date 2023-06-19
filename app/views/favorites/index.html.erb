@@ -1,27 +1,33 @@
 <div class="container after-navbar">
-  <div class="text-center">
-    <% if current_user.profile_picture %>
+  <div class="avatar-box text-center">
+    <% if current_user.profile_picture.attached? %>
       <%= cl_image_tag(current_user.profile_picture.key, class: "avatar-mylists") %>
     <% else %>
-      <%= image_tag('avatar_placeholder.png', class: "avatar-mylists mt-5") %>
+      <%= image_tag('avatar_placeholder.png', class: "avatar-mylists mt-1") %>
     <% end %>
 
-    <h3 class="mt-2"><%= current_user.name %></h3>
+    <h3 class="current-user-name mt-2"><%= current_user.name %></h3>
   </div>
   <div class="mt-1">
-    <h1 class="text-center mylist-h1">todas as suas listas favoritas</h1>
+    <h1 class="text-center mylist-h1"><span class="small-screens-text">todas as suas </span> listas favoritas</h1>
   </div>
 
-  <div class="media-list mb-3">
+  <div class="media-list fav-list mb-3">
     <% @fav_lists.each do |list| %>
        <% random_item = list.first.items.first.media %>
         <% img_url = (random_item["media_type"] == "VIDEO") ? random_item["thumbnail_url"] : random_item["media_url"] %>
         <div class="media-card" style="background-image: url(<%= img_url %>)">
           <%= link_to list.first.name, list_path(list.ids.first), style: 'text-decoration: none; color: white; text-shadow: 2px 2px 4px black;' %>
+           <% if list.first.user.profile_picture.attached? %>
+            <%= cl_image_tag(list.first.user.profile_picture.key, class: "card-img-user avatar-bordered") %>
+          <% else %>
+            <%= image_tag('avatar_placeholder.png', class: "card-img-user avatar-bordered") %>
+          <% end %>
         </div>
         <% end %>
-
   </div>
 
-  <%= link_to "voltar", root_path, class: "general-button" %>
+  <div class="buttons-box">
+    <%= link_to "voltar", root_path, class: "general-button" %>
+  </div>
 </div>

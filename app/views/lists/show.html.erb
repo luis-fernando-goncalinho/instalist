@@ -1,11 +1,15 @@
 <div class="container after-navbar">
-  <div class="text-center">
+  <div class="avatar-box2 text-center">
     <% if @list.user.profile_picture.attached? %>
       <%= cl_image_tag(@list.user.profile_picture.key, class: "avatar-mylists") %>
-   <% else %>
-      <%= image_tag('avatar_placeholder.png', class: "avatar-mylists mt-5") %>
+    <% else %>
+      <%= image_tag('avatar_placeholder.png', class: "avatar-mylists mt-1") %>
     <% end %>
-    <h4 class="mt-3">Lista criada por <%=link_to "@#{@list.items.first.media['username']}", "https://www.instagram.com/#{@list.items.first.media['username']}", id:"gradient", target: "_blank" %></h4>
+    <div class="current-user-name">
+    <h3>lista criada por</h3>
+    <h3><%=link_to "@#{@list.items.first.media['username']}", "https://www.instagram.com/#{@list.items.first.media['username']}", id:"gradient", target: "_blank" %></h3>
+    </div>
+
   </div>
 
   <div class="mt-1">
@@ -22,11 +26,13 @@
       </a>
     <% end %>
   </div>
-  <%= link_to "voltar", root_path, class: "general-button" %>
-  <%= link_to "favoritar essa lista", list_favorites_path(@list), class: "general-button", data: {turbo_method: :post} %>
-  <%= link_to "desfavoritar essa lista", list_favorite_path(@list), class: "general-button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer desfavoritar a lista?"} %>
-  <% if @list.user == @user %>
-    <%= link_to "editar essa lista", edit_list_path(@list), class: "general-button" %>
-    <%= link_to 'apagar esta lista', list_path(@list), class: "general-button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a lista?"} %>
-  <% end %>
+  <div class="buttons-box2 text-center">
+    <%= link_to "voltar", root_path, class: "general-button" %>
+    <%= link_to "favoritar", list_favorites_path(@list), class: "general-button", data: {turbo_method: :post} %>
+    <%= link_to "desfavoritar", list_favorite_path(@list), class: "general-button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer desfavoritar a lista?"} %>
+    <% if @list.user == @user %>
+      <%= link_to "editar", edit_list_path(@list), class: "general-button" %>
+      <%= link_to 'apagar', list_path(@list), class: "general-button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a lista?"} %>
+    <% end %>
+  </div>
 </div>

@@ -28,6 +28,54 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  margin:0 auto;
   object-fit: cover;
+}
+
+.card-img-user {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+}
+
+@media only screen
+  and (min-device-width: 280px)
+  and (max-device-width: 812px) {
+
+    .avatar-mylists{
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .current-user-name{
+      margin-left: 10px;
+      padding-left: 10px;
+      text-align: left;
+
+      border-left: gray 1px solid;
+    }
+
+    .avatar-box{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar-box2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .current-user-name{
+        h3{
+          line-height: 16px;
+          font-size: 18px;
+        }
+
+      }
+    }
 }

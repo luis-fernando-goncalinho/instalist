@@ -11,3 +11,13 @@
   width: 160px;
   height: auto;
 }
+
+.sticky{
+  position: sticky;
+  top: 0;
+  width: 100%;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+}
