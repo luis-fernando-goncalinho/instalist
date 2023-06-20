@@ -22,11 +22,9 @@
         <% img_url = (item.media["media_type"] == "VIDEO") ? item.media["thumbnail_url"] : item.media["media_url"] %>
         <div class="media-card" <%= image_url = img_url %>
        style="background-image:url(<%= image_url %>)">
-        <div>
           <% caption = item.media["caption"] %>
           <% max_length = 35 %> <!-- Número máximo de caracteres -->
-          <p><%= caption.length > max_length ? caption[0...max_length] + "..." : caption %></p>
-        </div>
+          <p class="caption"><%= caption.length > max_length ? caption[0...max_length] + "..." : caption %></p>
         </div>
       </a>
     <% end %>
