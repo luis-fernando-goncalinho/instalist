@@ -13,4 +13,14 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.117);
   background-color: #f4f4f4;
   position: relative;
+
+  .fa-heart {
+    position: absolute;
+    right: -20px;
+    top: 5px;
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+  }
+
 }
