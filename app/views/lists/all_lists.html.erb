@@ -4,7 +4,7 @@
   </div>
 
   <div class="media-list fav-list mb-3">
-    <% @lists.each do |list| %>
+    <% @lists.shuffle.each do |list| %>
         <% random_item = list.items.sample %>
         <% img_url = (random_item.media["media_type"] == "VIDEO") ? random_item.media["thumbnail_url"] : random_item.media["media_url"] %>
         <div class="media-card" style="background-image: url(<%= img_url %>)">
@@ -13,6 +13,11 @@
             <%= cl_image_tag(list.user.profile_picture.key, class: "card-img-user avatar-bordered") %>
           <% else %>
             <%= image_tag('avatar_placeholder.png', class: "card-img-user avatar-bordered") %>
+          <% end %>
+          <% if list.favorites.map(&:user_id).include?(current_user.id) %>
+            <i class="fa-solid fa-heart" style="color: #ff0000;"></i>
+          <% else  %>
+            <i class="fa-regular fa-heart" style="color: #ff0000;"></i>
           <% end %>
         </div>
     <% end %>

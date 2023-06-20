@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite = Favorite.find_by(list_id: params[:id], user: current_user)
     @favorite.destroy
-    redirect_to root_path, notice: "Favorite successfully deleted."
+    redirect_to list_path(@list), notice: "Favorite successfully deleted."
   end
 
   def index

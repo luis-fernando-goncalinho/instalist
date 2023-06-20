@@ -22,14 +22,22 @@
         <% img_url = (item.media["media_type"] == "VIDEO") ? item.media["thumbnail_url"] : item.media["media_url"] %>
         <div class="media-card" <%= image_url = img_url %>
        style="background-image:url(<%= image_url %>)">
+        <div>
+          <% caption = item.media["caption"] %>
+          <% max_length = 35 %> <!-- Número máximo de caracteres -->
+          <p><%= caption.length > max_length ? caption[0...max_length] + "..." : caption %></p>
+        </div>
         </div>
       </a>
     <% end %>
   </div>
   <div class="buttons-box2 text-center">
     <%= link_to "voltar", root_path, class: "general-button" %>
-    <%= link_to "favoritar", list_favorites_path(@list), class: "general-button", data: {turbo_method: :post} %>
-    <%= link_to "desfavoritar", list_favorite_path(@list), class: "general-button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer desfavoritar a lista?"} %>
+    <% if @list.favorites.map(&:user_id).include?(current_user.id) %>
+      <%= link_to "desfavoritar", list_favorite_path(@list), class: "general-button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer desfavoritar a lista?"} %>
+    <% else %>
+      <%= link_to "favoritar", list_favorites_path(@list), class: "general-button", data: {turbo_method: :post} %>
+    <% end %>
     <% if @list.user == @user %>
       <%= link_to "editar", edit_list_path(@list), class: "general-button" %>
       <%= link_to 'apagar', list_path(@list), class: "general-button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a lista?"} %>

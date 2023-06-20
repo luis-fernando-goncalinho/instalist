@@ -3,6 +3,20 @@
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   grid-gap: 5px;
+  // position: relative;
+
+  p{
+    position: absolute;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px black;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+  }
 }
 
 .media-list-small {
@@ -24,6 +38,17 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 40pt;
+  }
+
+  .fa-heart {
+    position: absolute;
+    right: -25px;
+    top: 10px;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    font-size: 30px;
+
   }
 }
 
@@ -140,5 +165,10 @@
   and (max-device-width: 812px) {
     .fav-list{
       grid-template-columns: 1fr;
+    }
+    .media-list{
+      p{
+        display: none;
+      }
     }
   }

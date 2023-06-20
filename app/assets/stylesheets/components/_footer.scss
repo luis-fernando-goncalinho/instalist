@@ -5,21 +5,36 @@
   justify-content: space-between;
   height: 50px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: rgba(0, 0, 0, 0.144);
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: black;
-  opacity: 0.15;
+  color: rgba(0, 0, 0, 0.144);
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
+
 }
 .footer-links a:hover {
-  opacity: 1;
+
+  .github-icon {
+    color: black;
+  }
+  .instagram-icon {
+    color: #ff4081;
+  }
+  .facebook-icon:hover {
+    color: #1877F2;
+  }
+  .twitter-icon:hover {
+    color: #1DA1F2;
+  }
+  .linkedin-icon:hover {
+    color: #0077B5;
+  }
 }
 
 .footer-copyright{
