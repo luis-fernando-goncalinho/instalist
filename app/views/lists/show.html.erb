@@ -31,10 +31,12 @@
   </div>
   <div class="buttons-box2 text-center">
     <%= link_to "voltar", root_path, class: "general-button" %>
-    <% if @list.favorites.map(&:user_id).include?(current_user.id) %>
-      <%= link_to "desfavoritar", list_favorite_path(@list), class: "general-button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer desfavoritar a lista?"} %>
-    <% else %>
-      <%= link_to "favoritar", list_favorites_path(@list), class: "general-button", data: {turbo_method: :post} %>
+    <% unless @list.user == current_user %>
+      <% if @list.favorites.map(&:user_id).include?(current_user.id) %>
+        <%= link_to "desfavoritar", list_favorite_path(@list), class: "general-button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer desfavoritar a lista?"} %>
+      <% else %>
+        <%= link_to "favoritar", list_favorites_path(@list), class: "general-button", data: {turbo_method: :post} %>
+      <% end %>
     <% end %>
     <% if @list.user == @user %>
       <%= link_to "editar", edit_list_path(@list), class: "general-button" %>
